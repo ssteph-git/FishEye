@@ -1,28 +1,19 @@
     async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
-        const photographers = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // et bien retourner le tableau photographers seulement une fois
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
+        //Récupération des données du JSON
+        let photograph = [];
+        let media = [];
+        fetch("./../data/photographers.json")
+        .then(reponse => reponse.json())
+        .then(data => {
+            
+            photograph = data.photographers;
+            media = data.media;
+
+            displayData(photograph);
+        });
+
+        //Transmission des données des photographes
+        return ({photographers: [...photograph]});
     }
 
     async function displayData(photographers) {
@@ -38,7 +29,7 @@
     async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
-        displayData(photographers);
+
     };
     
     init();
