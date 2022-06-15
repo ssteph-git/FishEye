@@ -1,11 +1,24 @@
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: auto;
+}
+
 #contact_modal {
     display: none;
 }
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
+    height: 320px;
     margin: 0 100px;
+    display: flex;
+    align-items: center;
+    margin-top: 16px; /*Changment*/
+}
+
+.contact{
+ align-items: center;
+ padding-top: 35px;
 }
 
 .contact_button {
@@ -73,4 +86,45 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.photo{
+    align-items: flex-end;
+    padding-right: 80px;
+}
+
+.photo img{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 95px;
+}
+
+.name h1{
+    color: #D3573C;
+    font-size: 64px;
+    margin: 0px;
+}
+
+.colonne{
+    width: calc(100% / 3);
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    /* padding-top: 50px; */
+}
+
+.name {
+    /* padding-bottom: 23px; */
+}
+
+.Places2 {
+    font-size: 25px;
+    color: #901C1C;
+    font-weight: bold;
+}
+
+.Tagline2 {
+    font-size: 18.3px;
+    padding-top: 20px;
 }

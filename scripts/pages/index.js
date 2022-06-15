@@ -2,16 +2,22 @@
         //Récupération des données du JSON
         let photograph = [];
         let media = [];
-        fetch("./../data/photographers.json")
-        .then(reponse => reponse.json())
-        .then(data => {
+        // fetch("./../data/photographers.json")
+        // .then(reponse => reponse.json())
+        // .then(data => {
             
-            photograph = data.photographers;
-            media = data.media;
+        //     photograph = data.photographers;
+        //     media = data.media;
 
-            displayData(photograph);
-        });
-
+        //     displayData(photograph);
+        // });
+        getAPIData(data => {
+            
+                photograph = data.photographers;
+                media = data.media;
+    
+                displayData(photograph);
+            })
         //Transmission des données des photographes
         return ({photographers: [...photograph]});
     }
