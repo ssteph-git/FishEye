@@ -4,6 +4,10 @@ form.addEventListener('submit',function(e){
     e.preventDefault();
     alert('succes')
 })
+
+var mediaPhgraph;
+var nameGlobal;
+
 async function getData() {
 
     //Récupération d' l'id du photographe----------------------------
@@ -20,13 +24,16 @@ async function getData() {
             
         photo = data.photographers;
         media = data.media;
-        
 
+        mediaPhgraph = media.filter(media => media.photographerId == idphotograph);
+        
         //Récupération des données du photograqphe en question---------------
        let photoTrouvé = photo.find(element => element.id == idphotograph);
-       console.log(photoTrouvé);
        const { name, city, country, tagline, portrait} = photoTrouvé;
        //Récupération des données du photograqphe en question---------------
+
+       nameGlobal = name;
+       displayDataMedia(name, mediaPhgraph);
 
        //**Affichage du header du photographe-----------------------------------------
        const photographerHeader = document.querySelector(".photograph-header");
@@ -62,51 +69,6 @@ async function getData() {
 
        //**Modification de la modale-----------------------------------------
 
-
-       //Récupération des données multimédias du photograph en question--------------------------------
-        // media = data.media;
-
-        let mediaPhgraph = media.filter(media => media.photographerId == idphotograph);
-        console.log(mediaPhgraph);
-        // const { date, image, likes, title} = mediaPhgraph;
-
-        //nombre total des médias du photographe
-        let tailleMedia = mediaPhgraph.length;
-
-        //Positionnement sur la balise: all_medias
-        let divMedias = document.querySelector(".all_medias");
-        let div;
-        let imgdiv;
-        let video;
-
-        let multimedia = "";
-        for (let i = 0; i <tailleMedia ; i++) {
-            
-            //Création des div contenants tout les médias
-           div = document.createElement('div');
-           div.setAttribute("class","My_medias");
-           divMedias.appendChild(div);
-
-           //Si nous trouvons des medias videos
-            if(mediaPhgraph[i].image === undefined)
-            {
-                multimedia = `assets/media/${name}/${mediaPhgraph[i].video}`;
-                video = document.createElement('video');
-                video.setAttribute("src", multimedia);
-                // video.setAttribute("width", "600");
-                video.setAttribute("controls","");
-                 div.appendChild(video);
-            }
-            else{
-            //Si nous trouvons des medias photos
-            multimedia = `assets/media/${name}/${mediaPhgraph[i].image}`;
-            imgdiv = document.createElement('img');
-            imgdiv.setAttribute("src", multimedia);
-             div.appendChild(imgdiv);
-            }
-        }
-        //Récupération des données multimédias du photograph en question--------------------------------
-
     });
     return ({photographers: [...photo]});
 }
@@ -114,6 +76,15 @@ async function getData() {
 async function initData() {
     // Récupère les datas des photographes
     let { myData } = await getData();
+};
+
+async function displayDataMedia(name, media) {
+    const photographerMediaSection = document.querySelector(".all_medias");
+    media.forEach((medias) => {
+        const mediaModel = mediaFactory(name, medias);
+        const mediaCardDOM = mediaModel.getMediaCardDOM();
+        photographerMediaSection.appendChild(mediaCardDOM);
+    });
 };
 
 initData();
