@@ -15,11 +15,11 @@ async function getData() {
     // Penser à remplacer par les données récupérées dans le json
     let photo = [];
     let media = [];
-    fetch("./../data/photographers.json")
-    .then(reponse => reponse.json())
 
-    .then(data => {
+    getAPIData(data => {
+            
         photo = data.photographers;
+        media = data.media;
         
 
         //Récupération des données du photograqphe en question---------------
@@ -64,7 +64,7 @@ async function getData() {
 
 
        //Récupération des données multimédias du photograph en question--------------------------------
-        media = data.media;
+        // media = data.media;
 
         let mediaPhgraph = media.filter(media => media.photographerId == idphotograph);
         console.log(mediaPhgraph);
