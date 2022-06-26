@@ -51,9 +51,16 @@ async function getData() {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         photographerPhoto.appendChild(img);
-
        //**Affichage du header du photographe-----------------------------------------
 
+       //**Modification de la modale-----------------------------------------
+       const titre = document.querySelector(".titre");
+    //    titre.textContent = titre.textContent +"\r\n" + name;
+        const p = document.createElement('p');
+        p.textContent = name;
+        titre.appendChild(p);
+
+       //**Modification de la modale-----------------------------------------
 
 
        //Récupération des données multimédias du photograph en question--------------------------------
@@ -61,6 +68,43 @@ async function getData() {
 
         let mediaPhgraph = media.filter(media => media.photographerId == idphotograph);
         console.log(mediaPhgraph);
+        // const { date, image, likes, title} = mediaPhgraph;
+
+        //nombre total des médias du photographe
+        let tailleMedia = mediaPhgraph.length;
+
+        //Positionnement sur la balise: all_medias
+        let divMedias = document.querySelector(".all_medias");
+        let div;
+        let imgdiv;
+        let video;
+
+        let multimedia = "";
+        for (let i = 0; i <tailleMedia ; i++) {
+            
+            //Création des div contenants tout les médias
+           div = document.createElement('div');
+           div.setAttribute("class","My_medias");
+           divMedias.appendChild(div);
+
+           //Si nous trouvons des medias videos
+            if(mediaPhgraph[i].image === undefined)
+            {
+                multimedia = `assets/media/${name}/${mediaPhgraph[i].video}`;
+                video = document.createElement('video');
+                video.setAttribute("src", multimedia);
+                // video.setAttribute("width", "600");
+                video.setAttribute("controls","");
+                 div.appendChild(video);
+            }
+            else{
+            //Si nous trouvons des medias photos
+            multimedia = `assets/media/${name}/${mediaPhgraph[i].image}`;
+            imgdiv = document.createElement('img');
+            imgdiv.setAttribute("src", multimedia);
+             div.appendChild(imgdiv);
+            }
+        }
         //Récupération des données multimédias du photograph en question--------------------------------
 
     });

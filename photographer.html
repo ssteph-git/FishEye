@@ -23,17 +23,37 @@
 
         </div>
       </div>
+      <div class="tri">
+        <p>Trier par</p>
+          <form name="f" class="form_tri">
+            <select name="dmc" class="select_tri">
+              <option value="Popularité" selected> Popularité </option>
+              <option value="Date"> Date </option>
+              <option value="Titre"> Titre </option>
+            </select>
+            </form>
+      </div>
+      <div class="all_medias">
+
+      </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2 class="titre">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form id="form">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="first">Prénom</label>
+						<input class="text-control" type="text" id="first" name="first"/>
+						<label for="last">Nom</label>
+            <input class="text-control" type="text" id="last" name="last" />
+            <label for="email">E-mail</label>
+            <input class="text-control" type="email" id="email" name="email" />
+            <label for="message">Votre message</label>
+            <textarea class="textarea-control" type="message" id="message" name="message">
+            </textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>

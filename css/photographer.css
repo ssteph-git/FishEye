@@ -35,9 +35,13 @@ body {
 }
 
 .modal {
+    position: absolute;
+    left: 26.5%;
+    top: 4%;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    /* width: 50%; */
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,6 +52,7 @@ body {
 
 .modal header {
     justify-content: space-between;
+    align-items: baseline;
     width: 100%;
 }
 
@@ -58,15 +63,24 @@ body {
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    margin: 0px;
+    /* text-align: center; */
+    margin-top: -25px;
+    /* margin-bottom: 50px; */
 }
 
-form {
+form{
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
+
+.form_tri{
+    width: 0%;
+    margin-left: 30px;
+}
+
 
 form label {
     color: #312E2E;
@@ -79,6 +93,7 @@ form div {
     width: 100%;
     align-items: self-start;
     margin-bottom: 26px;
+    margin-top: 65px;
 }
 
 form input {
@@ -127,4 +142,50 @@ form input {
 .Tagline2 {
     font-size: 18.3px;
     padding-top: 20px;
+}
+
+.textarea-control{
+    width: 100%;
+    height: 11.7vw;
+}
+
+.tri{
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+}
+
+.tri p{
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 18.4px;
+}
+
+.select_tri{
+    width: 11.5vw;
+    height: 4.5vw;
+}
+
+.all_medias{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.My_medias{
+    width: calc(100% / 3);
+}
+
+.My_medias img{
+    width: 82%;
+    /* height: 55%; */
+    height: 20vw;
+    object-fit: cover;
+}
+
+video{
+    width: 82%;
+    height: 20vw;
 }
