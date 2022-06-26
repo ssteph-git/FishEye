@@ -166,26 +166,58 @@ form input {
     height: 4.5vw;
 }
 
-.all_medias{
+.all_medias {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-left: 100px;
     margin-right: 100px;
+    margin-top: 30px;
 }
 
-.My_medias{
-    width: calc(100% / 3);
+.My_medias {
+    width: 28%;
+    display: flex;
+    flex-direction: column;
 }
 
-.My_medias img{
-    width: 82%;
-    /* height: 55%; */
-    height: 20vw;
+.My_medias img {
+    width: 100%;
+    height: 20.5vw;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 video{
     width: 82%;
     height: 20vw;
+}
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.mylike{
+    display: flex;
+    font-weight: bold;
+    color:#901C1C;
+}
+
+.mylike p{
+    margin-right: 15px;
+}
+
+.namePhoto p{
+    font-size: 24px;
+    font-weight: bold;
+    color:#901C1C;
+}
+
+.fa-heart{
+    font-size: 20px;
+    color:#901C1C;
 }

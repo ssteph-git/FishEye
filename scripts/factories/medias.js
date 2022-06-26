@@ -61,7 +61,8 @@ function mediaFactory(name, data) {
          iLike.setAttribute("class","fa-solid fa-heart");
          divLike.appendChild(iLike);
          iLike.addEventListener('click',()=>{
-
+             console.log(pLike.textContent);
+             pLike.textContent = likes+1;
          })
         return (div);
     }
