@@ -1,11 +1,12 @@
-var likesGlobal;
+let likesGlobal;
 
-function mediaFactory(name, data) {
+function mediaFactory(name, data,index,openLightbox) {
 
-    let { title, image, video, likes, date, price } = data;
+    let { title, image, video, likes } = data;
 
     //Positionnement sur la balise: all_medias
     let divMedias = document.querySelector(".all_medias");
+    
     let div, imgdiv, divDetails, divName, divLike, pName, pLike, iLike;
 
     let multimedia = "";
@@ -25,9 +26,17 @@ function mediaFactory(name, data) {
              multimedia = `assets/media/${name}/${video}`;
              video = document.createElement('video');
              video.setAttribute("src", multimedia);
-             // video.setAttribute("width", "600");
              video.setAttribute("controls","");
               div.appendChild(video);
+
+              video.addEventListener('click',()=>{
+                let whiteScreen = document.getElementById('white-screen');
+                whiteScreen.style.position="fixed";
+    
+                openLightbox(index);
+    
+            })
+              
          }
          else{
          //Si nous trouvons des medias photos
@@ -35,6 +44,17 @@ function mediaFactory(name, data) {
          imgdiv = document.createElement('img');
          imgdiv.setAttribute("src", multimedia);
           div.appendChild(imgdiv);
+
+          imgdiv.addEventListener('click',()=>{
+            // console.log('image:'+index);
+
+            let whiteScreen = document.getElementById('white-screen');
+            whiteScreen.style.position="fixed";
+
+            openLightbox(index);
+
+        })
+
          }
 
          divDetails = document.createElement('div');
