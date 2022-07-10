@@ -208,6 +208,7 @@ right.appendChild(iclose);
 
 iclose.addEventListener('click',function(){
     closeLightbox();
+    open=false;
 })
 
 let iright = document.createElement('i');
@@ -223,35 +224,14 @@ iright.addEventListener('click',function(){
 })
 //Création de la card de la lightbox-----------------------------------------
 
-window.addEventListener("keydown", function (event) {
-    if ((event.key=="Escape") & (open==true)) {
-        // if (event.key =="Escape") {
-    //   alert("L'utilisateur a appuyé sur la touche " + event.key);
-    closeLightbox();
-    open=false;
-    }
 
-    if((event.key=="ArrowLeft") & (open==true)) {
-        lightboxLeft();
-    }
-
-    if((event.key=="ArrowRight") & (open==true)) {
-        lightboxRight();
-    }
-
-
-    // if (event.key) {
-    //     alert("L'utilisateur a appuyé sur la touche " + event.key);
-    // }
-
-  });
 }
 
 function lightboxLeft(){
-    lightboxIndex++;//changement de multimédia
+    lightboxIndex--;//changement de multimédia
 
-    if(lightboxIndex==allMedia.length){//si nous somme au dernier fichier multimédia, et que nous appuyons pour voir l'image suivante: nous retournons au premier fichier multimedia
-        lightboxIndex=0;
+    if(lightboxIndex==-1){//si nous somme au premier fichier multimédia, et que nous appuyons pour voir l'image précedente: nous retournons au premier fichier multimedia
+        lightboxIndex=allMedia.length-1;
     }
 
     let modalLightbox = document.querySelector('#modal_lightbox');
@@ -282,6 +262,30 @@ function lightboxRight(){
     whiteScreen.appendChild(modalLightboxNew);
     openLightbox(lightboxIndex);
 }
+
+window.addEventListener("keydown", function (event) {
+    if ((event.key=="Escape") & (open==true)) {
+        // if (event.key =="Escape") {
+    //   alert("L'utilisateur a appuyé sur la touche " + event.key);
+    closeLightbox();
+    open=false;
+    }
+
+    if((event.key=="ArrowLeft") & (open==true)) {
+        lightboxLeft();
+        console.log('ok');
+    }
+
+    if((event.key=="ArrowRight") & (open==true)) {
+        lightboxRight();
+    }
+
+
+    // if (event.key) {
+    //     alert("L'utilisateur a appuyé sur la touche " + event.key);
+    // }
+
+  });
 
 initData();
 

@@ -8,4 +8,6 @@ function closeLightbox() {
     let modalLightboxNew = document.createElement('div');
     modalLightboxNew.setAttribute("id","modal_lightbox");
     whiteScreen.appendChild(modalLightboxNew);
+
+    // return false;
 }
