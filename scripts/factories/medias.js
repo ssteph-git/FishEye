@@ -83,6 +83,7 @@ function mediaFactory(name, data,index,openLightbox) {
          iLike.addEventListener('click',()=>{
              console.log(pLike.textContent);
              pLike.textContent = likes+1;
+             getLikesCount();//modification du total des likes en temps réel: si on en ajoute "un" de plus pour un média
          })
         return (div);
     }

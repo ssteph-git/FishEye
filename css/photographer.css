@@ -210,7 +210,7 @@ form input {
     color:#901C1C;
 }
 
-.fa-heart{
+.mylike .fa-heart{
     font-size: 20px;
     color:#901C1C;
 }
@@ -287,4 +287,40 @@ form input {
 .title{
     margin-top: 8px;
     color:#901C1C;
+}
+
+#total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    /* z-index: 99; */
+    /* top: 0px; */
+    bottom: 0px;
+    right: 55px;
+    width: 380px;
+    width: 26vw;
+    height: 4.5vw;
+    /* border: 1px solid red; */
+    background-color: #DB8876;
+    border-radius: 10px 10px 0 0;
+}
+
+.div-total{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.div-total .fa-heart{
+    margin-left: 5px;
+    font-size: 18.6px;
+}
+
+.argent-jour{
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: bold;
 }

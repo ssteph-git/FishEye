@@ -10,6 +10,7 @@ let nameGlobal;
 let allMedia=[];
 let lightboxIndex;
 let open =false; 
+let priceGlobal;
 
 async function getData() {
 
@@ -33,9 +34,10 @@ async function getData() {
         allMedia=mediaPhgraph;
         //Récupération des données du photograqphe en question---------------
        let photoTrouvé = photo.find(element => element.id == idphotograph);
-       let { name, city, country, tagline, portrait} = photoTrouvé;
+       let { name, city, country, tagline, portrait, price} = photoTrouvé;
        //Récupération des données du photograqphe en question---------------
         nameGlobal = name;
+        priceGlobal = price;
 
        displayDataMedia(name, mediaPhgraph);
 
@@ -147,10 +149,15 @@ async function displayDataMedia(name, media) {
     getLikesCount();
 };
 function getLikesCount(){
+    let divTotalLikeP =document.querySelector('.total-like-p');
     let total = 0;
     const likesTags = [...document.querySelectorAll('.mylike>p')];
     likesTags.forEach(tags=>{total+=parseInt(tags.textContent)});
     console.log(total);
+    // const plike = document.createElement( 'p' );
+    divTotalLikeP.textContent = total; //affichage des likes total
+    let pArgentDuJour =document.querySelector('.total-argent-p');
+    pArgentDuJour.textContent = priceGlobal+"€ / jour";
 }
 function openLightbox(index){
 open = true;
