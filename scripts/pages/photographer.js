@@ -83,23 +83,24 @@ async function initData() {
     // Récupère les datas des photographes
     let { myData } = await getData();
 
-    let tri = document.querySelector(".select_tri");
-    tri.addEventListener("change", function() {
-        if(tri.value == "Popularité")
-        {
-            classement("likes");
-        }
+    // let tri = document.querySelector(".select_tri");
 
-        if(tri.value == "Titre")
-        {
-            classement("titre");
-        }
+    //     tri.addEventListener("click", function() {
+    //     if(tri.value == "Popularité")
+    //     {
+    //         classement("likes");
+    //     }
 
-        if(tri.value == "Date")
-        {
-            classement("date");
-        }
-    });
+    //     if(tri.value == "Titre")
+    //     {
+    //         classement("titre");
+    //     }
+
+    //     if(tri.value == "Date")
+    //     {
+    //         classement("date");
+    //     }
+    // });
 
 };
 
@@ -294,6 +295,49 @@ window.addEventListener("keydown", function (event) {
 
   });
 
+  function menuTri(){
+    const selector = document.getElementById('selector');
+    const menu = document.getElementById('menu');
+    const options = document.querySelectorAll('option');
+    menu.style.display ='none';
+
+    selector.addEventListener('click', ()=>{
+        selector.style.display = 'none';
+        menu.style.display = 'flex';
+
+    })
+
+    for (const option of options) {
+        option.addEventListener('click', (e) =>{
+            if(e.target.innerText == "Popularité")
+            {
+                classement("likes");
+            }
+    
+            if(e.target.innerText == "Titre")
+            {
+                classement("titre");
+            }
+    
+            if(e.target.innerText == "Date")
+            {
+                classement("date");
+            }
+
+            selector.style.display = 'flex';
+            menu.style.display ='none';
+            selector.innerText = e.target.innerText;
+            let i = document.createElement('i');
+            i.setAttribute("class","fa-solid fa-angle-up");
+            selector.appendChild(i);
+          
+        })
+}
+}
+
 initData();
+menuTri();
+
+
 
 
