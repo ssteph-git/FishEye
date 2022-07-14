@@ -39,9 +39,9 @@
         <div id="selector">Popularité  <i class="fa-solid fa-angle-up"></i></div>
        
         <div id="menu" >
-          <option value="Popularité" selected> Popularité </option>
-          <option value="Date"> Date </option>
-          <option value="Titre"> Titre </option>
+          <div class="option" id="option"> Popularité</div>
+          <div class="option"> Date </div>
+          <div class="option"> Titre </div>
         </div>
       </div>
       
@@ -54,21 +54,21 @@
 			<div class="modal">
 				<header>
           <h2 class="titre">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img id="close" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form id="form">
 					<div>
 						<label for="first">Prénom</label>
-						<input class="text-control" type="text" id="first" name="first"/>
+						<input class="text-control" type="text" id="first" name="first" required/>
 						<label for="last">Nom</label>
-            <input class="text-control" type="text" id="last" name="last" />
+            <input class="text-control" type="text" id="last" name="last" required/>
             <label for="email">E-mail</label>
-            <input class="text-control" type="email" id="email" name="email" />
+            <input class="text-control" type="email" id="email" name="email" required/>
             <label for="message">Votre message</label>
             <textarea class="textarea-control" type="message" id="message" name="message">
             </textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -85,9 +85,10 @@
       <div id="modal_lightbox"></div>
     </div>
     <script src="scripts/utils/api.js"></script>
-    <script src="scripts/factories/medias.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/factories/medias.js"></script>
+
+    <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/lightbox.js"></script>
   </body>
 </html>

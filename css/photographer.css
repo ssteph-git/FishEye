@@ -3,6 +3,10 @@ body {
     margin: auto;
 }
 
+#main{
+    margin-bottom: 50px;/*Permet que le compteur, ne cache pas le texte d'une image: en bas de page*/
+}
+
 #contact_modal {
     display: none;
 }
@@ -32,6 +36,18 @@ body {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* .contact_button:hover {
+
+    background-color: #DB8876;
+
+} */
+
+.contact_button:focus,.contact_button:hover {
+
+    background-color: #DB8876;
+
 }
 
 .modal {
@@ -95,25 +111,34 @@ form{
 
 #menu{
     display: flex;
-    width: 11.5vw;
+    width: 10vw;
     flex-direction: column;
     /* align-items: center;
     justify-content: center; */
     background-color: #901C1C;
     border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    margin-bottom: -119px;/*Permet d'afficher le menu sur l'image ou la video du dessous*/
+    z-index: 1;/*Permet d'afficher le menu sur l'image ou la video du dessous*/
 }
 
-#menu option{
+#menu div{
     display: flex;
     align-items: center;
+    border-bottom: white solid 1px;
     /* width: 11.5vw; */
     height: 4.5vw;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: white;
     font-weight: bold;
     /* border-bottom: white;
     border-width: 2px; */
+}
+
+#option{
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -154,6 +179,7 @@ form input {
     color: #D3573C;
     font-size: 64px;
     margin: 0px;
+    white-space: nowrap;
 }
 
 .colonne{
@@ -172,6 +198,7 @@ form input {
 .Tagline2 {
     font-size: 18.3px;
     padding-top: 20px;
+    white-space: nowrap;
 }
 
 .textarea-control{

@@ -1,9 +1,4 @@
 //Mettre le code JavaScript lié à la page photographer.html
-const form =document.getElementById('form');
-form.addEventListener('submit',function(e){
-    e.preventDefault();
-    alert('succes')
-})
 
 let mediaPhgraph;
 let nameGlobal;
@@ -123,7 +118,6 @@ function classement(e) {
             mediaPhgraph.sort((a, b) => {
                 return a.date.localeCompare(b.date);
                   });
-                console.log(mediaPhgraph);
             break;
     }
     allMedia=mediaPhgraph;
@@ -154,13 +148,16 @@ function getLikesCount(){
     let total = 0;
     const likesTags = [...document.querySelectorAll('.mylike>p')];
     likesTags.forEach(tags=>{total+=parseInt(tags.textContent)});
-    console.log(total);
     // const plike = document.createElement( 'p' );
     divTotalLikeP.textContent = total; //affichage des likes total
     let pArgentDuJour =document.querySelector('.total-argent-p');
     pArgentDuJour.textContent = priceGlobal+"€ / jour";
 }
 function openLightbox(index){
+    //Permet d'eviter que l'utilisateur puisse ouvrir une autre image (avec la touche entré du clavier) avec le focus qui est resté sur l'image avant l'ouverture de la lightbox (idem dans la fonction: "closeLightbox")
+    main = document.querySelector("#main");
+    main.style.display = "none";
+    //Permet d'eviter que l'utilisateur puisse ouvrir une autre image (avec la touche entré du clavier) avec le focus qui est resté sur l'image avant l'ouverture de la lightbox (idem dans la fonction: "closeLightbox")
 open = true;
     lightboxIndex=index;
 
@@ -204,6 +201,7 @@ p.setAttribute("class","title");
 p.textContent = title; 
 middle.appendChild(p);
 mediaModal.appendChild(middle);
+
 
 let right = document.createElement('div');
 right.setAttribute("class","right");
@@ -281,7 +279,6 @@ window.addEventListener("keydown", function (event) {
 
     if((event.key=="ArrowLeft") & (open==true)) {
         lightboxLeft();
-        console.log('ok');
     }
 
     if((event.key=="ArrowRight") & (open==true)) {
@@ -295,21 +292,47 @@ window.addEventListener("keydown", function (event) {
 
   });
 
-  function menuTri(){
+  function menuTri(){    //Gestion du menu de tri
+
     const selector = document.getElementById('selector');
+    selector.setAttribute("tabindex",0);
     const menu = document.getElementById('menu');
-    const options = document.querySelectorAll('option');
+
+    const options = document.querySelectorAll('.option');
     menu.style.display ='none';
 
-    selector.addEventListener('click', ()=>{
+    //Gestion de la div de selection du menu déroulant à la souris et au clavier-----------------------------------
+    initSelector('click');
+    initSelector('keydown');
+
+    function initSelector(event){
+    selector.addEventListener(event, ()=>{
         selector.style.display = 'none';
         menu.style.display = 'flex';
 
-    })
+        const option = document.getElementById('option');
+        let i = document.createElement('i');
+        i.setAttribute("class","fa-solid fa-angle-up");
+        option.appendChild(i);
 
+    })
+}
+    //Gestion de la div de selection du menu déroulant à la souris et au clavier-----------------------------------
+
+//Gestion des options du menu déroulant, à la souris, et au clavier-----------------------------------------------------
+initMenu('click');
+initMenu('keydown');
+function initMenu(event)
+{
     for (const option of options) {
-        option.addEventListener('click', (e) =>{
-            if(e.target.innerText == "Popularité")
+        option.setAttribute("tabindex",0);
+      
+        option.addEventListener(event, (e) =>{
+
+        if((event =='click') ||((event=="keydown") && (e.key=="Enter")))
+        {
+
+            if(e.target.innerText =="Popularité")
             {
                 classement("likes");
             }
@@ -326,17 +349,33 @@ window.addEventListener("keydown", function (event) {
 
             selector.style.display = 'flex';
             menu.style.display ='none';
-            selector.innerText = e.target.innerText;
+            if(e.target.innerText == "")//Permet que l'on est le texte 'Popularité' à coté de la coche: si l'on click sur la coche, au lieu de cliquer le texte
+            {
+                selector.innerText = "Popularité"
+            }
+            else{
+                selector.innerText = e.target.innerText;
+            }
+        
             let i = document.createElement('i');
             i.setAttribute("class","fa-solid fa-angle-up");
             selector.appendChild(i);
-          
+
+        const option = document.querySelector('#option>i');
+        option.remove();
+        }
+           
         })
+
+    }
 }
+//Gestion des options du menu déroulant, à la souris, et au clavier-----------------------------------------------------
+
 }
 
 initData();
 menuTri();
+submitModalContact();
 
 
 
