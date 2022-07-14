@@ -1,5 +1,6 @@
 let likesGlobal;
 
+
 function mediaFactory(name, data,index,openLightbox) {
 
     let { title, image, video, likes } = data;
@@ -11,6 +12,8 @@ function mediaFactory(name, data,index,openLightbox) {
 
     let multimedia = "";
 
+    
+
     //---------------------Récupération des données multimédias du photograph en question--------------------------------
     function getMediaCardDOM() {
 
@@ -20,6 +23,25 @@ function mediaFactory(name, data,index,openLightbox) {
         div.setAttribute("class","My_medias");
         divMedias.appendChild(div);
  
+        //Lancement de la lightbox: à partir du clavier ou de la souris-----------------------------------------------------
+        function initLightbox(eventClick, enventKeydown)
+        {
+            switch (eventClick) {
+        
+                case "click":
+                    let whiteScreen = document.getElementById('white-screen');
+                whiteScreen.style.position="fixed";
+                openLightbox(index);break;
+        
+                case "keydown":
+                    if((enventKeydown.key=="Enter")&(open==false)){
+                        let whiteScreen = document.getElementById('white-screen');
+                        whiteScreen.style.position="fixed";
+                        openLightbox(index);break;
+                    }
+            }
+        }
+        //Lancement de la lightbox: à partir du clavier ou de la souris-----------------------------------------------------
     
         //Si nous trouvons des medias videos
          if(image === undefined)
@@ -29,21 +51,16 @@ function mediaFactory(name, data,index,openLightbox) {
              video.setAttribute("src", multimedia);
              video.setAttribute("controls","");
              video.setAttribute("tabindex",0);
+             video.setAttribute("alt",title);
+             video.setAttribute("role","button");
+             video.setAttribute("aria-label","Ouvrir video en plein écran");
               div.appendChild(video);
 
               video.addEventListener('click',()=>{//Ouverture de la lightbox à la souris
-                let whiteScreen = document.getElementById('white-screen');
-                whiteScreen.style.position="fixed";
-                openLightbox(index);
-                // video.blur();//Permet d'enlever le focus à l'image, pour que l'on ne puisse pas dupliquer l'image de la Lightbox en appuyant sur la touche: Entré (si celle ci à le focus)
+                initLightbox('click',null);
             })
             video.addEventListener('keydown',function (event) {//Ouverture de la lightbox au clavier
-                if(event.key=="Enter"){
-                    let whiteScreen = document.getElementById('white-screen');
-                    whiteScreen.style.position="fixed";
-                    openLightbox(index);
-                    // video.blur();//Permet d'enlever le focus à l'image, pour que l'on ne puisse pas dupliquer l'image de la Lightbox en appuyant sur la touche: Entré (si celle ci à le focus)
-                }
+                initLightbox('keydown',event);
             })
               
          }
@@ -53,29 +70,17 @@ function mediaFactory(name, data,index,openLightbox) {
          imgdiv = document.createElement('img');
          imgdiv.setAttribute("src", multimedia);
          imgdiv.setAttribute("tabindex",0);
+         imgdiv.setAttribute('alt',title);
+         imgdiv.setAttribute('role',"button");
+         imgdiv.setAttribute("aria-label","Ouvrir photo en plein écran");
           div.appendChild(imgdiv);
 
           imgdiv.addEventListener('click',()=>{//Ouverture de la lightbox au clic de la souris
-            let whiteScreen = document.getElementById('white-screen');
-            whiteScreen.style.position="fixed";
-            openLightbox(index);
-            // imgdiv.blur();//Permet d'enlever le focus à l'image, pour que l'on ne puisse pas dupliquer l'image de la Lightbox en appuyant sur la touche: Entré (si celle si à le focus)
+            initLightbox('click',null);
         })
 
         imgdiv.addEventListener('keydown',function (event) {//Ouverture de la lightbox au clavier
-            // document.getElementById('.My_medias>img').blur();
-            
-            if(event.key=="Enter"){
-                let whiteScreen = document.getElementById('white-screen');
-                whiteScreen.style.position="fixed";
-                
-                openLightbox(index);
-                // imgdiv.blur();//Permet d'enlever le focus à l'image, pour que l'on ne puisse pas dupliquer l'image de la Lightbox en appuyant sur la touche: Entré (si celle ci à le focus)
-                
-                // close=true;
-                
-            }
-            
+            initLightbox('keydown',event);
         })
 
          }
@@ -103,6 +108,8 @@ function mediaFactory(name, data,index,openLightbox) {
          iLike = document.createElement('i');
          iLike.setAttribute("class","fa-solid fa-heart");
          iLike.setAttribute("tabindex",0);
+         iLike.setAttribute("role","button");
+         iLike.setAttribute("aria-label","Likes")
          divLike.appendChild(iLike);
          iLike.addEventListener('click',()=>{
              pLike.textContent = likes+1;

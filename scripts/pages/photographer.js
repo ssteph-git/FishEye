@@ -6,6 +6,7 @@ let allMedia=[];
 let lightboxIndex;
 let open =false; 
 let priceGlobal;
+// let firstOpen=false;
 
 async function getData() {
 
@@ -58,6 +59,7 @@ async function getData() {
         const photographerPhoto = document.querySelector(".photo");
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
+        img.setAttribute("alt",name);
         photographerPhoto.appendChild(img);
        //**Affichage du header du photographe-----------------------------------------
 
@@ -155,9 +157,10 @@ function getLikesCount(){
 }
 function openLightbox(index){
     //Permet d'eviter que l'utilisateur puisse ouvrir une autre image (avec la touche entré du clavier) avec le focus qui est resté sur l'image avant l'ouverture de la lightbox (idem dans la fonction: "closeLightbox")
-    main = document.querySelector("#main");
-    main.style.display = "none";
+    // main = document.querySelector("#main");
+    // main.style.display = "none";
     //Permet d'eviter que l'utilisateur puisse ouvrir une autre image (avec la touche entré du clavier) avec le focus qui est resté sur l'image avant l'ouverture de la lightbox (idem dans la fonction: "closeLightbox")
+    // firstOpen=true;
 open = true;
     lightboxIndex=index;
 
@@ -180,9 +183,10 @@ if(image === undefined)
          img.setAttribute("src", multimedia);
          img.setAttribute("class", 'imgLightbox');
          }
-
+         img.setAttribute("alt",title);
 //Création de la card de la lightbox-----------------------------------------
 const mediaModal=document.getElementById('modal_lightbox');
+mediaModal.setAttribute("aria-label","image closeup view");
 
 let left = document.createElement('div');
 left.setAttribute("class","left");
@@ -190,11 +194,17 @@ mediaModal.appendChild(left);
 
 let ileft = document.createElement('i');
 ileft.setAttribute("class","fa-solid fa-angle-left");
+ileft.setAttribute("role","button");
+ileft.setAttribute("aria-label","image ou vidéo précédente");
+ileft.setAttribute("alt","Previous image");
 left.appendChild(ileft);
 
 let middle = document.createElement('div');
 middle.setAttribute("class","middle");
 middle.appendChild(img);
+
+// img.focus();
+// document.getElementById('media'+index).focus();
 
 let p = document.createElement('p');
 p.setAttribute("class","title");
@@ -209,6 +219,9 @@ mediaModal.appendChild(right);
 
 iclose = document.createElement('i');
 iclose.setAttribute("class","fa-solid fa-xmark");
+iclose.setAttribute("role","button");
+iclose.setAttribute("aria-label","Fermer la fenêtre");
+iclose.setAttribute("alt","Close dialog");
 right.appendChild(iclose);
 
 
@@ -219,6 +232,9 @@ iclose.addEventListener('click',function(){
 
 let iright = document.createElement('i');
 iright.setAttribute("class","fa-solid fa-angle-right");
+iright.setAttribute("role","button");
+iright.setAttribute("aria-label","image ou video suivante");
+iright.setAttribute("alt","Next image");
 right.appendChild(iright);
 
 ileft.addEventListener('click',function(){
@@ -285,6 +301,11 @@ window.addEventListener("keydown", function (event) {
         lightboxRight();
     }
 
+    // if ((event.key=="Enter") & (open==true)) {
+
+    // alert("preventDefault");
+    // event.preventDefault();
+    // }
 
     // if (event.key) {
     //     alert("L'utilisateur a appuyé sur la touche " + event.key);

@@ -10,7 +10,9 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye home page"/>
+      </a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -18,7 +20,7 @@
 
         </div>
         <div class="contact colonne">
-          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          <button class="contact_button" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
         </div>
         <div class="photo colonne">
 
@@ -36,24 +38,29 @@
       </div> -->
       <div class="tri">
         <p>Trier par</p>
-        <div id="selector">Popularité  <i class="fa-solid fa-angle-up"></i></div>
+        <div role="button" aria-haspopup="listbox"  id="selector" aria-label="Ouvrir le menu pour classer les médias par Popularité, Date, Titre">Popularité  <i class="fa-solid fa-angle-up"></i></div>
        
-        <div id="menu" >
-          <div class="option" id="option"> Popularité</div>
-          <div class="option"> Date </div>
-          <div class="option"> Titre </div>
-        </div>
+        <!-- <div id="menu" >
+          <div role ="listbox"  aria-selected="true"  class="option" id="option" aria-labelledby="menu"  > Popularité</div>
+          <div class="option" role="button"> Date </div>
+          <div class="option" role="button"> Titre </div>
+        </div> -->
+        <ul id="menu" >
+          <li role ="listbox"  aria-selected="true"  class="option" id="option" aria-labelledby="menu"  > Popularité</li>
+          <li class="option" role="button"> Date </li>
+          <li class="option" role="button"> Titre </li>
+        </ul>
       </div>
       
 
-      <div class="all_medias">
+      <div class="all_medias" id="all_medias">
 
       </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2 class="titre">Contactez-moi</h2>
+          <h1 class="titre">Contactez-moi</h1>
           <img id="close" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form id="form">

@@ -75,11 +75,12 @@ body {
     cursor: pointer;
 }
 
-.modal header h2 {
+.modal header h1 {
     font-size: 64px;
     font-weight: normal;
     margin: 0px;
     margin-top: -25px;
+    color:black;
 }
 
 form{
@@ -110,6 +111,7 @@ form{
 }
 
 #menu{
+    list-style-type: none;
     display: flex;
     width: 10vw;
     flex-direction: column;
@@ -122,7 +124,7 @@ form{
     z-index: 1;/*Permet d'afficher le menu sur l'image ou la video du dessous*/
 }
 
-#menu div{
+#menu li{
     display: flex;
     align-items: center;
     border-bottom: white solid 1px;
