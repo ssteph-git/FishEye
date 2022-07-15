@@ -3,7 +3,7 @@ body {
     margin: auto;
 }
 
-#main{
+#main {
     margin-bottom: 50px;/*Permet que le compteur, ne cache pas le texte d'une image: en bas de page*/
 }
 
@@ -17,12 +17,12 @@ body {
     margin: 0 100px;
     display: flex;
     align-items: center;
-    margin-top: 16px; /*Changment*/
+    margin-top: 16px;/*Changment*/
 }
 
-.contact{
- align-items: center;
- padding-top: 35px;
+.contact {
+    align-items: center;
+    padding-top: 35px;
 }
 
 .contact_button {
@@ -38,13 +38,8 @@ body {
     cursor: pointer;
 }
 
-/* .contact_button:hover {
-
-    background-color: #DB8876;
-
-} */
-
-.contact_button:focus,.contact_button:hover {
+.contact_button:focus,
+.contact_button:hover {
 
     background-color: #DB8876;
 
@@ -80,43 +75,38 @@ body {
     font-weight: normal;
     margin: 0px;
     margin-top: -25px;
-    color:black;
+    color: black;
 }
 
-form{
+form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.form_tri{
+.form_tri {
     width: 0%;
     margin-left: 30px;
 }
 
-
-
-#selector{
+#selector {
     display: flex;
     align-items: center;
-    /* margin-left: 30px; */
-    justify-content:space-around;
+    justify-content: space-around;
     background-color: #901C1C;
     color: white;
     font-weight: bold;
     width: 11.5vw;
-        height: 4.5vw;
-        border-radius: 5px;
+    height: 4.5vw;
+    border-radius: 5px;
 }
 
-#menu{
+#menu {
     list-style-type: none;
     display: flex;
     width: 10vw;
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
     background-color: #901C1C;
     border-radius: 5px;
     padding: 0px 10px 0px 10px;
@@ -124,21 +114,18 @@ form{
     z-index: 1;/*Permet d'afficher le menu sur l'image ou la video du dessous*/
 }
 
-#menu li{
+#menu li {
     display: flex;
     align-items: center;
     border-bottom: white solid 1px;
-    /* width: 11.5vw; */
     height: 4.5vw;
     padding-left: 10px;
     padding-right: 10px;
     color: white;
     font-weight: bold;
-    /* border-bottom: white;
-    border-width: 2px; */
 }
 
-#option{
+#option {
     display: flex;
     justify-content: space-between;
 }
@@ -165,26 +152,26 @@ form input {
     border-radius: 5px;
 }
 
-.photo{
+.photo {
     align-items: flex-end;
     padding-right: 80px;
 }
 
-.photo img{
+.photo img {
     height: 200px;
     width: 200px;
     object-fit: cover;
     border-radius: 95px;
 }
 
-.name h1{
+.name h1 {
     color: #D3573C;
     font-size: 64px;
     margin: 0px;
     white-space: nowrap;
 }
 
-.colonne{
+.colonne {
     width: calc(100% / 3);
     display: flex;
     flex-direction: column;
@@ -203,25 +190,25 @@ form input {
     white-space: nowrap;
 }
 
-.textarea-control{
+.textarea-control {
     width: 100%;
     height: 11.7vw;
 }
 
-.tri{
+.tri {
     margin-left: 100px;
     margin-right: 100px;
     display: flex;
 }
 
-.tri p{
+.tri p {
     font-weight: bold;
     margin-top: 20px;
     font-size: 18.4px;
     margin-right: 30px;
 }
 
-.select_tri{
+.select_tri {
     width: 11.5vw;
     height: 4.5vw;
 }
@@ -248,13 +235,13 @@ form input {
     border-radius: 10px;
 }
 
-.My_medias video{
+.My_medias video {
     height: 20.5vw;
     border-radius: 10px;
     object-fit: cover;
 }
 
-.details{
+.details {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -262,25 +249,25 @@ form input {
     margin-bottom: 25px;
 }
 
-.mylike{
+.mylike {
     display: flex;
     font-weight: bold;
-    color:#901C1C;
+    color: #901C1C;
 }
 
-.mylike p{
+.mylike p {
     margin-right: 15px;
 }
 
-.namePhoto p{
+.namePhoto p {
     font-size: 24px;
     font-weight: bold;
-    color:#901C1C;
+    color: #901C1C;
 }
 
-.mylike .fa-heart{
+.mylike .fa-heart {
     font-size: 20px;
-    color:#901C1C;
+    color: #901C1C;
 }
 
 #modal_lightbox {
@@ -299,24 +286,24 @@ form input {
     width: 72vw;
 }
 
-#modal_lightbox .right{
+#modal_lightbox .right {
     display: flex;
     flex-direction: column;
 }
 
-.right .fa-xmark{
+.right .fa-xmark {
     margin-bottom: 225px;
     font-size: 35px;
     margin-left: 15px;
     font-weight: bold;
-    color:#901C1C;
+    color: #901C1C;
 }
 
-.right .fa-angle-right{
+.right .fa-angle-right {
     margin-left: 15px;
 }
 
-.left .fa-angle-left{
+.left .fa-angle-left {
     margin-right: 15px;
     margin-top: 260px;
 }
@@ -333,18 +320,18 @@ form input {
     border-radius: 10px;
 }
 
-.fa-angle-right{
+.fa-angle-right {
     font-size: 40px;
-    color:#901C1C;
+    color: #901C1C;
 }
 
-.fa-angle-left{
+.fa-angle-left {
     font-size: 40px;
-    color:#901C1C;
+    color: #901C1C;
 }
 
-.white-screen{
-    position:initial;
+.white-screen {
+    position: initial;
     top: 0;
     left: 0;
     width: 100vw;
@@ -352,9 +339,9 @@ form input {
     background-color: white;
 }
 
-.title{
+.title {
     margin-top: 8px;
-    color:#901C1C;
+    color: #901C1C;
 }
 
 #total {
@@ -362,19 +349,16 @@ form input {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    /* z-index: 99; */
-    /* top: 0px; */
     bottom: 0px;
     right: 55px;
     width: 380px;
     width: 26vw;
     height: 4.5vw;
-    /* border: 1px solid red; */
     background-color: #DB8876;
     border-radius: 10px 10px 0 0;
 }
 
-.div-total{
+.div-total {
     display: flex;
     align-items: center;
     font-size: 20px;
@@ -382,12 +366,12 @@ form input {
     font-weight: bold;
 }
 
-.div-total .fa-heart{
+.div-total .fa-heart {
     margin-left: 5px;
     font-size: 18.6px;
 }
 
-.argent-jour{
+.argent-jour {
     margin-right: 30px;
     font-size: 20px;
     font-weight: bold;

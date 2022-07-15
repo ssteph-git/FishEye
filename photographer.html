@@ -1,101 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye home page"/>
-      </a>
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <div class="name colonne">
 
-        </div>
-        <div class="contact colonne">
-          <button class="contact_button" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
-        </div>
-        <div class="photo colonne">
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
 
-        </div>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye home page" />
+    </a>
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <div class="name colonne">
       </div>
-      <!-- <div class="tri">
-        <p>Trier par</p>
-          <form name="f" class="form_tri">
-            <select name="dmc" class="select_tri">
-              <option value="Popularité" selected> Popularité </option>
-              <option value="Date"> Date </option>
-              <option value="Titre"> Titre </option>
-            </select>
-            </form>
-      </div> -->
-      <div class="tri">
-        <p>Trier par</p>
-        <div role="button" aria-haspopup="listbox"  id="selector" aria-label="Ouvrir le menu pour classer les médias par Popularité, Date, Titre">Popularité  <i class="fa-solid fa-angle-up"></i></div>
-       
-        <!-- <div id="menu" >
-          <div role ="listbox"  aria-selected="true"  class="option" id="option" aria-labelledby="menu"  > Popularité</div>
-          <div class="option" role="button"> Date </div>
-          <div class="option" role="button"> Titre </div>
-        </div> -->
-        <ul id="menu" >
-          <li role ="listbox"  aria-selected="true"  class="option" id="option" aria-labelledby="menu"  > Popularité</li>
-          <li class="option" role="button"> Date </li>
-          <li class="option" role="button"> Titre </li>
-        </ul>
+      <div class="contact colonne">
+        <button class="contact_button" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
       </div>
-      
-
-      <div class="all_medias" id="all_medias">
-
+      <div class="photo colonne">
       </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h1 class="titre">Contactez-moi</h1>
-          <img id="close" src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form id="form">
-					<div>
-						<label for="first">Prénom</label>
-						<input class="text-control" type="text" id="first" name="first" required/>
-						<label for="last">Nom</label>
-            <input class="text-control" type="text" id="last" name="last" required/>
-            <label for="email">E-mail</label>
-            <input class="text-control" type="email" id="email" name="email" required/>
-            <label for="message">Votre message</label>
-            <textarea class="textarea-control" type="message" id="message" name="message">
+    </div>
+    <div class="tri">
+      <p>Trier par</p>
+      <div role="button" aria-haspopup="listbox" id="selector"
+        aria-label="Ouvrir le menu pour classer les médias par Popularité, Date, Titre">Popularité <i
+          class="fa-solid fa-angle-up"></i></div>
+
+      <ul id="menu">
+        <li role="listbox" aria-selected="true" class="option" id="option" aria-labelledby="menu"> Popularité</li>
+        <li class="option" role="button"> Date </li>
+        <li class="option" role="button"> Titre </li>
+      </ul>
+    </div>
+
+    <div class="all_medias" id="all_medias">
+    </div>
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h1 class="titre">Contactez-moi</h1>
+        <img id="close" src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form id="form">
+        <div>
+          <label for="first">Prénom</label>
+          <input class="text-control" type="text" id="first" name="first" required />
+          <label for="last">Nom</label>
+          <input class="text-control" type="text" id="last" name="last" required />
+          <label for="email">E-mail</label>
+          <input class="text-control" type="email" id="email" name="email" required />
+          <label for="message">Votre message</label>
+          <textarea class="textarea-control" type="message" id="message" name="message">
             </textarea>
-					</div>
-          <button type="submit" class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <div id="total">
-      <div class="div-total">
-        <p class="total-like-p"></p>
-        <i class="fa-solid fa-heart"></i>
-      </div>
-      <div class="argent-jour">
-        <p class="total-argent-p"></p>
-      </div>
+        </div>
+        <button type="submit" class="contact_button">Envoyer</button>
+      </form>
     </div>
-    <div class="white-screen" id="white-screen">
-      <div id="modal_lightbox"></div>
+  </div>
+  <div id="total">
+    <div class="div-total">
+      <p class="total-like-p"></p>
+      <i class="fa-solid fa-heart"></i>
     </div>
-    <script src="scripts/utils/api.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="scripts/factories/medias.js"></script>
+    <div class="argent-jour">
+      <p class="total-argent-p"></p>
+    </div>
+  </div>
+  <div class="white-screen" id="white-screen">
+    <div id="modal_lightbox"></div>
+  </div>
+  <script src="scripts/utils/api.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="scripts/factories/medias.js"></script>
 
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/lightbox.js"></script>
-  </body>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/lightbox.js"></script>
+</body>
+
 </html>
