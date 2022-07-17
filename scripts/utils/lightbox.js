@@ -1,16 +1,16 @@
-function closeLightbox() {
+/* eslint-disable no-unused-vars */
 
-    //Suppréssion de la Lightbox
-    let modalLightbox = document.querySelector('#modal_lightbox');
-    modalLightbox.remove();
+function closeLightbox () {
+  // Suppréssion de la Lightbox
+  const modalLightbox = document.querySelector('#modal_lightbox')
+  modalLightbox.remove()
 
-    //Retrait du fond blanc de la lightbox que l'on quitte
-    let whiteScreen = document.getElementById('white-screen');
-    whiteScreen.style.position = "initial";
+  // Retrait du fond blanc de la lightbox que l'on quitte
+  const whiteScreen = document.getElementById('white-screen')
+  whiteScreen.style.position = 'initial'
 
-    //Réaffectation d'une Lightbox: si l'utilisateur veut en ouvrir une autre
-    let modalLightboxNew = document.createElement('div');
-    modalLightboxNew.setAttribute("id", "modal_lightbox");
-    whiteScreen.appendChild(modalLightboxNew);
-
+  // Réaffectation d'une Lightbox: si l'utilisateur veut en ouvrir une autre
+  const modalLightboxNew = document.createElement('div')
+  modalLightboxNew.setAttribute('id', 'modal_lightbox')
+  whiteScreen.appendChild(modalLightboxNew)
 }

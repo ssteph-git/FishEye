@@ -64,6 +64,7 @@ body {
     justify-content: space-between;
     align-items: baseline;
     width: 100%;
+    height: 100%;
 }
 
 .modal header img {
@@ -142,7 +143,7 @@ form div {
     width: 100%;
     align-items: self-start;
     margin-bottom: 26px;
-    margin-top: 65px;
+    margin-top: 10px;
 }
 
 form input {
@@ -337,6 +338,7 @@ form input {
     width: 100vw;
     height: 100%;
     background-color: white;
+    z-index: 2;
 }
 
 .title {

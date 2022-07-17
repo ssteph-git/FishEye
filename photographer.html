@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -21,7 +21,7 @@
       <div class="name colonne">
       </div>
       <div class="contact colonne">
-        <button class="contact_button" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <div class="photo colonne">
       </div>
@@ -46,7 +46,7 @@
     <div class="modal">
       <header>
         <h1 class="titre">Contactez-moi</h1>
-        <img id="close" src="assets/icons/close.svg" onclick="closeModal()" />
+        <img id="close" src="assets/icons/close.svg" onclick="closeModal()" role="button" alt="Boutton fermer le formulaire de contact"/>
       </header>
       <form id="form">
         <div>
@@ -57,7 +57,7 @@
           <label for="email">E-mail</label>
           <input class="text-control" type="email" id="email" name="email" required />
           <label for="message">Votre message</label>
-          <textarea class="textarea-control" type="message" id="message" name="message">
+          <textarea class="textarea-control" id="message" name="message">
             </textarea>
         </div>
         <button type="submit" class="contact_button">Envoyer</button>
@@ -67,7 +67,7 @@
   <div id="total">
     <div class="div-total">
       <p class="total-like-p"></p>
-      <i class="fa-solid fa-heart"></i>
+      <i class="fa-solid fa-heart" aria-hidden="true"></i>
     </div>
     <div class="argent-jour">
       <p class="total-argent-p"></p>

@@ -1,6 +1,5 @@
-# Base de code du projet P6 - Parcours Front-end
+# Projet Fisheye
+Voici le code du projet 6 (Créez un site accessible pour une plateforme de photographes), du cursus "Développeur d'application - JavaScript React" chez Openclassrooms".
 
-## Démarrer le projet
-
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+Qui comprend :
+- le code complet du site web (html, css, js), ainsi que ses dépendances pour fonctionner correctement (fichiers photos, vidéos, eslint).
